@@ -21,12 +21,14 @@ const ScreenLayoutStyle = styled.div<{ $isActive: boolean }>`
             transform ${ANIM_DURATION} ease ${ANIM_DURATION};
           opacity: 1;
           transform: translateY(0px);
+          pointer-events: all;
         `
       : css`
           transition: opacity ${ANIM_DURATION} ease,
             transform ${ANIM_DURATION} ease;
           opacity: 0;
           transform: translateY(-30px);
+          pointer-events: none;
         `};
 `;
 

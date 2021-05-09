@@ -24,10 +24,18 @@ const ScreenStackTest: FunctionComponent<{ toggle: boolean }> = ({
   return (
     <div>
       <ScreenLayout isActive={toggle}>
-        <Red />
+        <Red>
+          <input type="text" value="I am a string" />
+          <p>some text some text some text</p>
+          <button type="button">press here</button>
+        </Red>
       </ScreenLayout>
       <ScreenLayout isActive={!toggle}>
-        <Blue />
+        <Blue>
+          <input type="text" value="I am a string" />
+          <p>some text some text some text</p>
+          <button type="button">press here</button>
+        </Blue>
       </ScreenLayout>
     </div>
   );
