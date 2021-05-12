@@ -23,6 +23,7 @@ const WishInput: FunctionComponent = () => {
 
   return (
     <ScreenLayout isActive={currentScreen === THIS_SCREEN}>
+      <h1>Make a wish!</h1>
       <InputsContainer>
         <TextInput
           name="wish"
