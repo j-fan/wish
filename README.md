@@ -2,6 +2,8 @@
 
 Interactive browser based artwork for [Alvin Zhong](https://www.alvinruiyuanzhong.com/)
 
+Live demo [here](https://j-fan.github.io/wish/)
+
 ## Usage
 
 ```bash
