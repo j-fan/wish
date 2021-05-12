@@ -3,7 +3,7 @@ import { GlobalStyle } from "./globalStyles";
 import { BabylonScene } from "./babylon/BabylonScene";
 import styled from "styled-components";
 import { ScreenContextProvider } from "./state/ScreenContext";
-import { ScreenStackTest } from "./components/ScreenStackTest";
+import { AllScreens } from "./screens/AllScreens";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -16,7 +16,7 @@ export const App: FunctionComponent = () => {
       <AppContainer>
         <GlobalStyle />
         <BabylonScene />
-        <ScreenStackTest toggle />
+        <AllScreens />
       </AppContainer>
     </ScreenContextProvider>
   );

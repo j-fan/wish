@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React, {
   createContext,
   FunctionComponent,
@@ -15,13 +16,15 @@ enum Screens {
 type ScreenContextProps = {
   currentScreen: Screens;
   isLoading: boolean;
-  setCurrentScreen?: (screen: Screens) => void;
-  setIsLoading?: (isLoading: boolean) => void;
+  setCurrentScreen: (screen: Screens) => void;
+  setIsLoading: (isLoading: boolean) => void;
 };
 
 const defaultScreenContext: ScreenContextProps = {
   currentScreen: Screens.LANDING_SCREEN,
   isLoading: true,
+  setCurrentScreen: () => {},
+  setIsLoading: () => {},
 };
 
 const ScreenContext = createContext<ScreenContextProps>(defaultScreenContext);
@@ -53,4 +56,5 @@ export {
   ScreenContextConsumer,
   useScreen,
   defaultScreenContext,
+  Screens,
 };

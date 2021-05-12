@@ -27,7 +27,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Cybermancy II",
+      title: "Wish",
       template: "src/index.html",
     }),
   ],
