@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { ScreenContextProvider } from "./state/ScreenContext";
 import { AllScreens } from "./screens/AllScreens";
 import { CookiesProvider } from "react-cookie";
+import { OverlayControls } from "./screens/OverlayControls";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -19,6 +20,7 @@ export const App: FunctionComponent = () => {
           <GlobalStyle />
           <BabylonScene />
           <AllScreens />
+          <OverlayControls />
         </AppContainer>
       </ScreenContextProvider>
     </CookiesProvider>
