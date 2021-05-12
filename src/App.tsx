@@ -4,6 +4,7 @@ import { BabylonScene } from "./babylon/BabylonScene";
 import styled from "styled-components";
 import { ScreenContextProvider } from "./state/ScreenContext";
 import { AllScreens } from "./screens/AllScreens";
+import { CookiesProvider } from "react-cookie";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -12,12 +13,14 @@ const AppContainer = styled.div`
 
 export const App: FunctionComponent = () => {
   return (
-    <ScreenContextProvider>
-      <AppContainer>
-        <GlobalStyle />
-        <BabylonScene />
-        <AllScreens />
-      </AppContainer>
-    </ScreenContextProvider>
+    <CookiesProvider>
+      <ScreenContextProvider>
+        <AppContainer>
+          <GlobalStyle />
+          <BabylonScene />
+          <AllScreens />
+        </AppContainer>
+      </ScreenContextProvider>
+    </CookiesProvider>
   );
 };
