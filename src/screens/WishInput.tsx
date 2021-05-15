@@ -61,6 +61,7 @@ const LeftColumn = styled.div`
 const ScaledImg = styled.img`
   max-width: 100%;
   min-width: 100%;
+  object-fit: contain;
   ${Glow};
 `;
 
@@ -103,9 +104,8 @@ const WishInput: FunctionComponent = () => {
             }}
             placeholder="I wish for..."
             buttonText="Submit"
-            onFocus={(e) => {
+            onFocus={() => {
               setWishText("I wish ");
-              e.currentTarget.setSelectionRange(10, 10);
             }}
           />
         </LeftColumn>
