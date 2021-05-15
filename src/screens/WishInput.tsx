@@ -75,7 +75,7 @@ const WishInput: FunctionComponent = () => {
 
   const submitWish = () => {
     if (wishText) {
-      getDb().collection(wishesCollecionName).add({value: wishText});
+      getDb().collection(wishesCollecionName).add({ value: wishText });
       if (!cookies.hasMadeWish) {
         setCookie("hasMadeWish", true);
       }
@@ -101,8 +101,12 @@ const WishInput: FunctionComponent = () => {
               setWishText(value);
               submitWish();
             }}
-            placeholder="type here"
+            placeholder="I wish for..."
             buttonText="Submit"
+            onFocus={(e) => {
+              setWishText("I wish ");
+              e.currentTarget.setSelectionRange(10, 10);
+            }}
           />
         </LeftColumn>
       </WishInputContainer>

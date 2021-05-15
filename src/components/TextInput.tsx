@@ -1,4 +1,8 @@
-import React, { FunctionComponent, KeyboardEventHandler } from "react";
+import React, {
+  FocusEventHandler,
+  FunctionComponent,
+  KeyboardEventHandler,
+} from "react";
 import styled from "styled-components";
 import { fontFamily, ThemeColours } from "../globalStyles";
 import { Button } from "./Button";
@@ -41,6 +45,7 @@ type TextInputProps = {
   disabled?: boolean;
   onChange?: (newValue: string) => void;
   onEnter?: (value: string) => void;
+  onFocus?: FocusEventHandler<HTMLInputElement>;
   buttonText: string;
 };
 
@@ -60,6 +65,7 @@ const TextInput: FunctionComponent<TextInputProps> = ({
   return (
     <InputContainer>
       <StyledInput
+        value={value}
         type="text"
         onChange={(e) => {
           onChange?.(e.currentTarget.value);
