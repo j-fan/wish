@@ -10,7 +10,7 @@ const StyledButton = styled.div`
   padding: 10px;
   border: 1px solid ${ThemeColours.white};
   border-radius: 30px;
-  margin: 10px;
+  margin: 6px;
   line-height: 16px;
 
   &:hover {

@@ -48,4 +48,6 @@ const device = {
   desktop: `(min-width: ${size.desktop})`,
 };
 
-export { GlobalStyle, ThemeColours, fontFamily, device };
+const Glow = "filter: drop-shadow(0px 0px 6px #FFF)";
+
+export { GlobalStyle, ThemeColours, fontFamily, device, Glow };

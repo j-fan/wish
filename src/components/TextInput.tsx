@@ -4,7 +4,7 @@ import { fontFamily, ThemeColours } from "../globalStyles";
 import { Button } from "./Button";
 
 const InputContainer = styled.div`
-  height: 60px;
+  height: 50px;
   width: 100%;
   background: linear-gradient(
     90deg,
@@ -13,7 +13,7 @@ const InputContainer = styled.div`
     rgba(231, 176, 232, 1) 73%,
     rgba(142, 128, 236, 1) 100%
   );
-  border-radius: 0 30px 30px 0;
+  border-radius: 0 25px 25px 0;
   display: flex;
   justify-content: flex-end;
 `;
@@ -27,7 +27,7 @@ const StyledInput = styled.input`
   border: none;
   outline: none;
   font-size: 16px;
-  width: 80%;
+  width: 100%;
 
   ::placeholder {
     color: ${ThemeColours.black50};
@@ -41,12 +41,14 @@ type TextInputProps = {
   disabled?: boolean;
   onChange?: (newValue: string) => void;
   onEnter?: (value: string) => void;
+  buttonText: string;
 };
 
 const TextInput: FunctionComponent<TextInputProps> = ({
   value,
   onChange,
   onEnter,
+  buttonText,
   ...props
 }) => {
   const handleEnter: KeyboardEventHandler<HTMLInputElement> = (event) => {
@@ -70,7 +72,7 @@ const TextInput: FunctionComponent<TextInputProps> = ({
           onEnter?.(value);
         }}
       >
-        Submit
+        {buttonText}
       </Button>
     </InputContainer>
   );
