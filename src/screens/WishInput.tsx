@@ -8,6 +8,7 @@ import { wishesCollecionName, setupDb, getDb } from "../firebase/setup";
 import { device, Glow } from "../globalStyles";
 
 const THIS_SCREEN = Screens.WISH_INPUT;
+const WISH_LENGTH_LIMIT = 280;
 
 const WishInputContainer = styled.div`
   box-sizing: border-box;
@@ -85,6 +86,12 @@ const WishInput: FunctionComponent = () => {
     }
   };
 
+  const handleOnChange = (newValue: string) => {
+    if (newValue.length < WISH_LENGTH_LIMIT) {
+      setWishText(newValue);
+    }
+  };
+
   return (
     <ScreenLayout isActive={currentScreen === THIS_SCREEN}>
       <WishInputContainer>
@@ -97,7 +104,7 @@ const WishInput: FunctionComponent = () => {
           <TextInput
             name="wish"
             value={wishText}
-            onChange={setWishText}
+            onChange={handleOnChange}
             onEnter={(value) => {
               setWishText(value);
               submitWish();
@@ -105,7 +112,9 @@ const WishInput: FunctionComponent = () => {
             placeholder="I wish for..."
             buttonText="Submit"
             onFocus={() => {
-              setWishText("I wish ");
+              if (!wishText) {
+                setWishText("I wish ");
+              }
             }}
           />
         </LeftColumn>

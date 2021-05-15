@@ -1,4 +1,5 @@
 import React, {
+  ClipboardEventHandler,
   FocusEventHandler,
   FunctionComponent,
   KeyboardEventHandler,
@@ -62,6 +63,11 @@ const TextInput: FunctionComponent<TextInputProps> = ({
     }
   };
 
+  const handlePaste: ClipboardEventHandler<HTMLInputElement> = (e) => {
+    const pastedValue = e.clipboardData.getData("text/plain");
+    onChange?.(pastedValue);
+  };
+
   return (
     <InputContainer>
       <StyledInput
@@ -71,6 +77,7 @@ const TextInput: FunctionComponent<TextInputProps> = ({
           onChange?.(e.currentTarget.value);
         }}
         onKeyPress={handleEnter}
+        onPaste={handlePaste}
         {...props}
       />
       <Button
