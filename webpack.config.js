@@ -25,6 +25,7 @@ const config = {
       },
     ],
   },
+  devtool: 'eval-cheap-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: "Wish",

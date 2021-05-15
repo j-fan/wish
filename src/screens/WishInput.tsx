@@ -1,10 +1,11 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
+import styled from "styled-components";
+import { useCookies } from "react-cookie";
 import { ScreenLayout } from "../components/ScreenLayout";
 import { Screens, useScreen } from "../state/ScreenContext";
 import { TextInput } from "../components/TextInput";
-import styled from "styled-components";
 import { Button } from "../components/Button";
-import { useCookies } from "react-cookie";
+import { wishesCollecionName, setupDb, getDb } from "../firebase/setup";
 
 const THIS_SCREEN = Screens.WISH_INPUT;
 
@@ -17,8 +18,13 @@ const WishInput: FunctionComponent = () => {
   const [wishText, setWishText] = useState("");
   const [cookies, setCookie] = useCookies();
 
+  useEffect(() => {
+    setupDb();
+  });
+
   const submitWish = () => {
     if (wishText) {
+      getDb().collection(wishesCollecionName).add({value: wishText});
       if (!cookies.hasMadeWish) {
         setCookie("hasMadeWish", true);
       }

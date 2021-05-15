@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import React, {
   createContext,
   FunctionComponent,
@@ -23,8 +22,8 @@ type ScreenContextProps = {
 const defaultScreenContext: ScreenContextProps = {
   currentScreen: Screens.LANDING_SCREEN,
   isLoading: true,
-  setCurrentScreen: () => {},
-  setIsLoading: () => {},
+  setCurrentScreen: () => null,
+  setIsLoading: () => null,
 };
 
 const ScreenContext = createContext<ScreenContextProps>(defaultScreenContext);
