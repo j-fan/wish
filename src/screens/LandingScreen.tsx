@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Button } from "../components/Button";
 import { ScreenLayout } from "../components/ScreenLayout";
+import { TextInput } from "../components/TextInput";
 import { Screens, useScreen } from "../state/ScreenContext";
 
 const THIS_SCREEN = Screens.LANDING_SCREEN;

@@ -3,13 +3,20 @@ import { ScreenLayout } from "../components/ScreenLayout";
 import { Screens, useScreen } from "../state/ScreenContext";
 import { TextInput } from "../components/TextInput";
 import styled from "styled-components";
-import { Button } from "../components/Button";
 import { useCookies } from "react-cookie";
+import { device } from "../globalStyles";
 
 const THIS_SCREEN = Screens.WISH_INPUT;
 
 const InputsContainer = styled.div`
   display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+
+  @media ${device.mobileL} {
+    width: 80%;
+  }
 `;
 
 const WishInput: FunctionComponent = () => {
@@ -44,8 +51,8 @@ const WishInput: FunctionComponent = () => {
             setWishText(value);
             submitWish();
           }}
+          placeholder="type your wish here"
         />
-        <Button onClick={submitWish}>Enter</Button>
       </InputsContainer>
     </ScreenLayout>
   );

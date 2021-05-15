@@ -8,6 +8,18 @@ const StyledButton = styled.div`
   user-select: none;
   cursor: pointer;
   padding: 10px;
+  border: 1px solid ${ThemeColours.white};
+  border-radius: 30px;
+  margin: 10px;
+  line-height: 16px;
+
+  &:hover {
+    background: ${ThemeColours.white25};
+  }
+
+  &:active {
+    background: ${ThemeColours.white75};
+  }
 `;
 
 type ButtonProps = {

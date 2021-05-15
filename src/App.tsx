@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { GlobalStyle } from "./globalStyles";
-import { BabylonScene } from "./babylon/BabylonScene";
 import styled from "styled-components";
 import { ScreenContextProvider } from "./state/ScreenContext";
 import { AllScreens } from "./screens/AllScreens";
 import { CookiesProvider } from "react-cookie";
 import { OverlayControls } from "./screens/OverlayControls";
+import { Background } from "./components/Background";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -18,7 +18,7 @@ export const App: FunctionComponent = () => {
       <ScreenContextProvider>
         <AppContainer>
           <GlobalStyle />
-          <BabylonScene />
+          <Background />
           <AllScreens />
           <OverlayControls />
         </AppContainer>
