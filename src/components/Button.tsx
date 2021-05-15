@@ -1,8 +1,13 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
+import { ThemeColours } from "../globalStyles";
 
-const StyledButton = styled.button`
-  color: blue;
+const StyledButton = styled.div`
+  color: ${ThemeColours.white};
+  display: flex;
+  user-select: none;
+  cursor: pointer;
+  padding: 10px;
 `;
 
 type ButtonProps = {
@@ -11,11 +16,7 @@ type ButtonProps = {
 };
 
 const Button: FunctionComponent<ButtonProps> = ({ children, ...props }) => {
-  return (
-    <StyledButton type="button" {...props}>
-      {children}
-    </StyledButton>
-  );
+  return <StyledButton {...props}>{children}</StyledButton>;
 };
 
 export { Button };
