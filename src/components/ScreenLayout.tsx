@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
+import { ThemeColours } from "../globalStyles";
 
 const ANIM_DURATION = "0.5s";
 
 const ScreenLayoutStyle = styled.div<{ $isActive: boolean }>`
+  color: ${ThemeColours.white};
   display: flex;
   align-items: center;
   justify-content: center;
