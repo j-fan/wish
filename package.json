@@ -9,7 +9,7 @@
     "check-types": "tsc",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --color --progress --content-base public/",
     "build": "cross-env NODE_ENV=production webpack --color --progress",
-    "postbuild": "ncp ./static ./docs --filter '**/*.*'",
+    "postbuild": "ncp ./public ./docs --filter '**/*.*'",
     "start": "serve docs",
     "lint": "eslint --ext .tsx,.ts,.js --quiet --fix src"
   },
