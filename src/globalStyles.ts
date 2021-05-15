@@ -2,21 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 const fontFamily = "font-family: 'Cormorant', serif;";
 
-const GlobalStyle = createGlobalStyle`
-  html, body, #app {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    ${fontFamily}
-  }
-
-  button {
-    font-family: 'Cormorant', serif;
-  }
-`;
-
 const ThemeColours = {
   white: "#FFFFFF",
   white25: "rgba(255, 255, 255, 0.25)",
@@ -27,6 +12,22 @@ const ThemeColours = {
   black50: "rgba(0, 0, 0, 0.5)",
   black75: "rgba(0, 0, 0, 0.75)",
 };
+
+const GlobalStyle = createGlobalStyle`
+  html, body, #app {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    ${fontFamily}
+    background: ${ThemeColours.black}
+  }
+
+  button {
+    font-family: 'Cormorant', serif;
+  }
+`;
 
 const size = {
   mobileS: "320px",
