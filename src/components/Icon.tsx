@@ -9,6 +9,7 @@ const IconStyle = styled.div<{ src: string; size: string }>`
     background-size: cover;
     box-sizing: border-box;
     cursor: pointer;
+    flex-shrink: 0;
 
     &:hover {
       transform: scale(1.05);
@@ -24,6 +25,7 @@ const IconSize = {
   small: "30px",
   medium: "40px",
   large: "50px",
+  extraLarge: "80px",
 };
 
 interface IconProps {
