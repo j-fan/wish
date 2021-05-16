@@ -5,6 +5,7 @@ import "firebase/analytics";
 export type Wish = {
   id: string;
   value: string;
+  timestamp: firebase.firestore.Timestamp;
 };
 
 const firebaseConfig = {

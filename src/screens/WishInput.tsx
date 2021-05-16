@@ -1,7 +1,9 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
+import firebase from "firebase/app";
+import "firebase/firestore";
 import styled from "styled-components";
 import { useCookies } from "react-cookie";
-import { en } from "naughty-words";
+import { en as naughtyWords } from "naughty-words";
 import { ScreenLayout } from "../components/ScreenLayout";
 import { Screens, useScreen } from "../state/ScreenContext";
 import { TextInput } from "../components/TextInput";
@@ -67,8 +69,6 @@ const ScaledImg = styled.img`
   ${Glow};
 `;
 
-const naughtyRe = new RegExp(en.join("|"));
-
 const WishInput: FunctionComponent = () => {
   const { currentScreen, setCurrentScreen } = useScreen();
   const [wishText, setWishText] = useState("");
@@ -79,8 +79,13 @@ const WishInput: FunctionComponent = () => {
   });
 
   const submitWish = () => {
-    if (wishText && !wishText.match(en.join("|"))) {
-      getDb().collection(wishesCollecionName).add({ value: wishText });
+    if (wishText && !wishText.match(naughtyWords.join("|"))) {
+      getDb()
+        .collection(wishesCollecionName)
+        .add({
+          value: wishText,
+          timestamp: firebase.firestore.Timestamp.now(),
+        });
       if (!cookies.hasMadeWish) {
         setCookie("hasMadeWish", true);
       }

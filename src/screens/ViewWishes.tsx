@@ -33,7 +33,11 @@ const ViewWishes: FunctionComponent = () => {
       const removeIds: string[] = [];
       changes.forEach((change: any) => {
         if (change.type === "added") {
-          newWishes.push({ id: change.doc.id, value: change.doc.data().value });
+          newWishes.push({
+            id: change.doc.id,
+            value: change.doc.data().value,
+            timestamp: change.doc.data().timestamp,
+          });
         } else if (change.type === "removed") {
           removeIds.push(change.doc.id);
         }
@@ -45,7 +49,7 @@ const ViewWishes: FunctionComponent = () => {
       );
     };
 
-    const query = db.collection(wishesCollecionName);
+    const query = db.collection(wishesCollecionName).orderBy("timestamp");
     const unsubscribe = query.onSnapshot(handleWishChanges, (err) =>
       console.error(err)
     );
@@ -59,9 +63,12 @@ const ViewWishes: FunctionComponent = () => {
       <WishesContainer>
         <h1>View wishes</h1>
         <ul>
-          {wishes.map((wish: Wish) => (
-            <li key={wish.id}>{wish.value}</li>
-          ))}
+          {wishes
+            .sort((lhs, rhs) => (lhs.timestamp < rhs.timestamp ? -1 : 1))
+            .reverse()
+            .map((wish: Wish) => (
+              <li key={wish.id}>{wish.value}</li>
+            ))}
         </ul>
       </WishesContainer>
     </ScreenLayout>
