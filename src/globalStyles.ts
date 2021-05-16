@@ -21,7 +21,14 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     overflow: hidden;
     ${fontFamily}
-    background: ${ThemeColours.black}
+    background: ${ThemeColours.black};
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 
   button {
@@ -49,6 +56,7 @@ const device = {
   desktop: `(min-width: ${size.desktop})`,
 };
 
-const Glow = "filter: drop-shadow(0px 0px 6px #FFF)";
+const Glow =
+  "filter: drop-shadow(0px 0px 1px #FFF) drop-shadow(0px 0px 5px #FFF)";
 
 export { GlobalStyle, ThemeColours, fontFamily, device, Glow };

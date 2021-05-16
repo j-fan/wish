@@ -8,10 +8,10 @@ const StyledButton = styled.div<{ $hasGlow?: boolean }>`
   user-select: none;
   cursor: pointer;
   padding: 10px;
-  border: 1px solid ${ThemeColours.white};
+  border: 2px solid ${ThemeColours.white};
   border-radius: 30px;
-  margin: 6px;
-  line-height: 16px;
+  align-items: center;
+
   ${({ $hasGlow }) =>
     $hasGlow &&
     css`
@@ -19,11 +19,11 @@ const StyledButton = styled.div<{ $hasGlow?: boolean }>`
     `}
 
   &:hover {
-    background: ${ThemeColours.white25};
+    transform: scale(1.05);
   }
 
   &:active {
-    background: ${ThemeColours.white75};
+    transform: scale(1.1);
   }
 `;
 
@@ -40,7 +40,7 @@ const Button: FunctionComponent<ButtonProps> = ({
 }) => {
   return (
     <StyledButton {...props} $hasGlow={hasGlow}>
-      {children}
+      <div>{children}</div>
     </StyledButton>
   );
 };
