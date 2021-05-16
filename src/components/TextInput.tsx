@@ -23,6 +23,10 @@ const InputContainer = styled.div`
   justify-content: flex-end;
 `;
 
+const StyledButton = styled(Button)`
+  margin: 4px;
+`;
+
 const StyledInput = styled.input`
   ${fontFamily}
   color: ${ThemeColours.black75};
@@ -80,13 +84,13 @@ const TextInput: FunctionComponent<TextInputProps> = ({
         onPaste={handlePaste}
         {...props}
       />
-      <Button
+      <StyledButton
         onClick={() => {
           onEnter?.(value);
         }}
       >
         {buttonText}
-      </Button>
+      </StyledButton>
     </InputContainer>
   );
 };
