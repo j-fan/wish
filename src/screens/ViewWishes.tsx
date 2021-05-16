@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 import { ScreenLayout } from "../components/ScreenLayout";
 import { Screens, useScreen } from "../state/ScreenContext";
 import { Wish, wishesCollecionName, getDb, setupDb } from "../firebase/setup";
@@ -66,6 +66,7 @@ const WishesColumn = styled.div`
 const ViewWishes: FunctionComponent = () => {
   const { currentScreen } = useScreen();
   const [wishes, setWishes] = useState<Wish[]>([]);
+  const wishContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setupDb();
@@ -99,6 +100,12 @@ const ViewWishes: FunctionComponent = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (wishContainerRef.current) {
+      wishContainerRef.current.scrollTo(0, 0);
+    }
+  }, [currentScreen]);
+
   return (
     <ScreenLayout isActive={currentScreen === THIS_SCREEN}>
       <WishesContainer>
@@ -106,7 +113,7 @@ const ViewWishes: FunctionComponent = () => {
           <h1>The Wishing Tree</h1>
           <TreeImage src="img/tree.png" />
         </TreeColumn>
-        <WishesColumn>
+        <WishesColumn ref={wishContainerRef}>
           {wishes.map((wish: Wish) => (
             <WishTag key={wish.id}>{wish.value}</WishTag>
           ))}

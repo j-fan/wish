@@ -68,6 +68,7 @@ const ScaledImg = styled.img`
 `;
 
 const naughtyRe = new RegExp(en.join("|"));
+const defaultText = "I wish ";
 
 const WishInput: FunctionComponent = () => {
   const { currentScreen, setCurrentScreen } = useScreen();
@@ -85,6 +86,7 @@ const WishInput: FunctionComponent = () => {
         setCookie("hasMadeWish", true);
       }
 
+      setWishText(defaultText);
       setCurrentScreen(Screens.VIEW_WISHES);
     }
   };
@@ -116,7 +118,7 @@ const WishInput: FunctionComponent = () => {
             buttonText="Submit"
             onFocus={() => {
               if (!wishText) {
-                setWishText("I wish ");
+                setWishText(defaultText);
               }
             }}
           />
