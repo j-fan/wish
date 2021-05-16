@@ -2,8 +2,21 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import { ScreenLayout } from "../components/ScreenLayout";
 import { Screens, useScreen } from "../state/ScreenContext";
 import { Wish, wishesCollecionName, getDb, setupDb } from "../firebase/setup";
+import styled from "styled-components";
+import { device } from "../globalStyles";
 
 const THIS_SCREEN = Screens.VIEW_WISHES;
+
+const WishesContainer = styled.div`
+  width: 100%;
+  padding: 20px;
+  word-wrap: break-word;
+  box-sizing: border-box;
+
+  @media ${device.tablet} {
+    max-width: 80%;
+  }
+`;
 
 const ViewWishes: FunctionComponent = () => {
   const { currentScreen } = useScreen();
@@ -43,12 +56,14 @@ const ViewWishes: FunctionComponent = () => {
 
   return (
     <ScreenLayout isActive={currentScreen === THIS_SCREEN}>
-      <h1>View wishes</h1>
-      <ul>
-        {wishes.map((wish: Wish) => (
-          <li key={wish.id}>{wish.value}</li>
-        ))}
-      </ul>
+      <WishesContainer>
+        <h1>View wishes</h1>
+        <ul>
+          {wishes.map((wish: Wish) => (
+            <li key={wish.id}>{wish.value}</li>
+          ))}
+        </ul>
+      </WishesContainer>
     </ScreenLayout>
   );
 };
