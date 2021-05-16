@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import firebase from "firebase/app";
 import "firebase/firestore";
+import { v4 as uuidv4 } from 'uuid';
 import styled from "styled-components";
 import { useCookies } from "react-cookie";
 import { en as naughtyWords } from "naughty-words";
@@ -69,16 +70,19 @@ const ScaledImg = styled.img`
   ${Glow};
 `;
 
-const naughtyRe = new RegExp(en.join("|"));
 const defaultText = "I wish ";
 
 const WishInput: FunctionComponent = () => {
   const { currentScreen, setCurrentScreen } = useScreen();
   const [wishText, setWishText] = useState("");
   const [cookies, setCookie] = useCookies();
+  const [userId, setUserId] = useState(uuidv4);
 
   useEffect(() => {
     setupDb();
+    if (cookies.hasMadeWish) {
+      setUserId(cookies.hasMadeWish);
+    }
   });
 
   const submitWish = () => {
@@ -88,9 +92,10 @@ const WishInput: FunctionComponent = () => {
         .add({
           value: wishText,
           timestamp: firebase.firestore.Timestamp.now(),
+          userId,
         });
       if (!cookies.hasMadeWish) {
-        setCookie("hasMadeWish", true);
+        setCookie("hasMadeWish", userId);
       }
 
       setWishText(defaultText);

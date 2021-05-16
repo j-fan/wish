@@ -81,6 +81,7 @@ const ViewWishes: FunctionComponent = () => {
         if (change.type === "added") {
           newWishes.push({
             id: change.doc.id,
+            userId: change.doc.data().userId,
             value: change.doc.data().value,
             timestamp: change.doc.data().timestamp,
           });
