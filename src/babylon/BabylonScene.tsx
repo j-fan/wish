@@ -13,7 +13,11 @@ const SceneContainer = styled.div`
   position: fixed;
 `;
 
-const BabylonScene: FunctionComponent = () => {
+type BabylonSceneProps = {
+  showStars: boolean;
+};
+
+const BabylonScene: FunctionComponent<BabylonSceneProps> = ({ showStars }) => {
   const [ref, { height, width }] = useMeasure({
     polyfill: ResizeObserver,
   });
@@ -35,7 +39,7 @@ const BabylonScene: FunctionComponent = () => {
           />
 
           <BackgroundModel />
-          {StarModels({ numStars: 6 })}
+          {StarModels({ numStars: 6, showStars })}
 
           <defaultRenderingPipeline
             hdr

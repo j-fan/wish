@@ -8,6 +8,7 @@ export type MeshProperties = {
   position?: Vector3;
   scaling?: Vector3;
   rotation?: Vector3;
+  enabled?: boolean;
 };
 
 type ImportedMeshProps = {
@@ -19,6 +20,7 @@ const ImportedMesh: FunctionComponent<ImportedMeshProps> = ({
   position = Vector3.Zero(),
   scaling = new Vector3(1, 1, 1),
   rotation = Vector3.Zero(),
+  enabled = true,
   rootUrl,
   sceneFilename,
 }) => {
@@ -53,7 +55,8 @@ const ImportedMesh: FunctionComponent<ImportedMeshProps> = ({
     mesh.position = position;
     mesh.scaling = scaling;
     mesh.rotation = rotation;
-  }, [position, rotation, scaling, mesh]);
+    mesh.setEnabled(enabled);
+  }, [position, rotation, scaling, enabled, mesh]);
 
   return (
     <Suspense fallback={<box name="fallback" scaling={Vector3.Zero()} />}>

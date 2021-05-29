@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
-import { BabylonScene } from "../babylon/BabylonScene";
 import { Button } from "../components/Button";
 import { ScreenLayout } from "../components/ScreenLayout";
 import { device, Glow } from "../globalStyles";
@@ -8,7 +7,7 @@ import { Screens, useScreen } from "../state/ScreenContext";
 
 const THIS_SCREEN = Screens.STARS;
 const ANIM_DURATION = "0.5s";
-const BUTTON_DELAY = "4s";
+const BUTTON_DELAY = "3s";
 
 const AlignBottom = styled.div`
   ${Glow};
@@ -49,7 +48,6 @@ const Stars: FunctionComponent = () => {
 
   return (
     <ScreenLayout isActive={currentScreen === THIS_SCREEN}>
-      <BabylonScene />
       <StyledButton
         onClick={() => {
           setCurrentScreen(Screens.VIEW_WISHES);

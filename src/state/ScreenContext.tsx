@@ -27,7 +27,7 @@ type ScreenContextProps = {
 };
 
 const defaultScreenContext: ScreenContextProps = {
-  currentScreen: Screens.STARS,
+  currentScreen: Screens.LANDING_SCREEN,
   isLoading: true,
   setCurrentScreen: () => null,
   setIsLoading: () => null,
