@@ -33,10 +33,10 @@ const BabylonScene: FunctionComponent = () => {
             direction={Vector3.Up()}
           />
 
-          <StarModel position={new Vector3(0, 1, 0)} />
-          <StarModel position={new Vector3(1, 0, 0)} />
-          <StarModel position={new Vector3(0, -1, 0)} />
-          <StarModel position={new Vector3(-1, 0, 0)} />
+          <StarModel position={new Vector3(0, 1, 0)} colour="teal" />
+          <StarModel position={new Vector3(1, 0, 0)} colour="purple" />
+          <StarModel position={new Vector3(0, -1, 0)} colour="yellow" />
+          <StarModel position={new Vector3(-1, 0, 0)} colour="purple" />
         </Scene>
       </Engine>
     </SceneContainer>
