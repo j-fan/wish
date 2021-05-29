@@ -13,11 +13,17 @@ enum Screens {
   ABOUT = "about",
 }
 
+type ScreenContent = {
+  text?: string;
+};
+
 type ScreenContextProps = {
   currentScreen: Screens;
   isLoading: boolean;
   setCurrentScreen: (screen: Screens) => void;
   setIsLoading: (isLoading: boolean) => void;
+  screenContent: ScreenContent;
+  setScreenContent: (newContent: ScreenContent) => void;
 };
 
 const defaultScreenContext: ScreenContextProps = {
@@ -25,6 +31,8 @@ const defaultScreenContext: ScreenContextProps = {
   isLoading: true,
   setCurrentScreen: () => null,
   setIsLoading: () => null,
+  screenContent: {},
+  setScreenContent: () => null,
 };
 
 const ScreenContext = createContext<ScreenContextProps>(defaultScreenContext);
@@ -34,10 +42,18 @@ const ScreenContextProvider: FunctionComponent = ({ children }) => {
     defaultScreenContext.currentScreen
   );
   const [isLoading, setIsLoading] = useState(defaultScreenContext.isLoading);
+  const [screenContent, setScreenContent] = useState({});
 
   return (
     <ScreenContext.Provider
-      value={{ currentScreen, isLoading, setCurrentScreen, setIsLoading }}
+      value={{
+        currentScreen,
+        isLoading,
+        setCurrentScreen,
+        setIsLoading,
+        screenContent,
+        setScreenContent,
+      }}
     >
       {children}
     </ScreenContext.Provider>

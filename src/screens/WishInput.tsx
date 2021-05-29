@@ -73,7 +73,7 @@ const ScaledImg = styled.img`
 const defaultText = "I wish ";
 
 const WishInput: FunctionComponent = () => {
-  const { currentScreen, setCurrentScreen } = useScreen();
+  const { currentScreen, setCurrentScreen, setScreenContent } = useScreen();
   const [wishText, setWishText] = useState("");
   const [cookies, setCookie] = useCookies();
   const [userId, setUserId] = useState(uuidv4);
@@ -96,6 +96,7 @@ const WishInput: FunctionComponent = () => {
         setCookie("hasMadeWish", userId);
       }
 
+      setScreenContent({ text: wishText });
       setWishText(defaultText);
       setCurrentScreen(Screens.STARS);
     }
