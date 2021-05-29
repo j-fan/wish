@@ -27,11 +27,11 @@ type ScreenContextProps = {
 };
 
 const defaultScreenContext: ScreenContextProps = {
-  currentScreen: Screens.LANDING_SCREEN,
+  currentScreen: Screens.STARS,
   isLoading: true,
   setCurrentScreen: () => null,
   setIsLoading: () => null,
-  screenContent: {},
+  screenContent: { text: "I wish for chicken nuggets" },
   setScreenContent: () => null,
 };
 
