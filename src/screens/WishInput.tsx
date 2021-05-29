@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import firebase from "firebase/app";
 import "firebase/firestore";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
 import { useCookies } from "react-cookie";
 import { en as naughtyWords } from "naughty-words";
@@ -87,19 +87,17 @@ const WishInput: FunctionComponent = () => {
 
   const submitWish = () => {
     if (wishText && !wishText.match(naughtyWords.join("|"))) {
-      getDb()
-        .collection(wishesCollecionName)
-        .add({
-          value: wishText,
-          timestamp: firebase.firestore.Timestamp.now(),
-          userId,
-        });
+      getDb().collection(wishesCollecionName).add({
+        value: wishText,
+        timestamp: firebase.firestore.Timestamp.now(),
+        userId,
+      });
       if (!cookies.hasMadeWish) {
         setCookie("hasMadeWish", userId);
       }
 
       setWishText(defaultText);
-      setCurrentScreen(Screens.VIEW_WISHES);
+      setCurrentScreen(Screens.STARS);
     }
   };
 

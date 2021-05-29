@@ -22,43 +22,40 @@ const OverlayScreenContainer = styled.div`
 const OverlayControls: FunctionComponent = () => {
   const [cookies] = useCookies();
   const { currentScreen, setCurrentScreen } = useScreen();
-  const [previousScreen, setPreviousScreen] = useState(currentScreen);
 
-  const isMainInteractionFlow = () =>
+  const shouldShowButtons = () =>
     currentScreen === Screens.LANDING_SCREEN ||
-    currentScreen === Screens.WISH_INPUT;
-
-  const goToScreen = (destination: Screens) => {
-    if (isMainInteractionFlow()) {
-      setPreviousScreen(currentScreen);
-    }
-    setCurrentScreen(destination);
-  };
+    currentScreen === Screens.VIEW_WISHES ||
+    currentScreen === Screens.ABOUT;
+  const shouldShowBackButton = () =>
+    currentScreen === Screens.VIEW_WISHES || currentScreen === Screens.ABOUT;
 
   return (
     <OverlayScreenContainer>
-      {cookies.hasMadeWish && (
+      {cookies.hasMadeWish && shouldShowButtons() && (
         <Icon
           src="img/icons_tree.png"
           size="medium"
           onClick={() => {
-            goToScreen(Screens.VIEW_WISHES);
+            setCurrentScreen(Screens.VIEW_WISHES);
           }}
         />
       )}
 
-      <Icon
-        src="img/icons_about.png"
-        size="medium"
-        onClick={() => {
-          goToScreen(Screens.ABOUT);
-        }}
-      />
+      {shouldShowButtons() && (
+        <Icon
+          src="img/icons_about.png"
+          size="medium"
+          onClick={() => {
+            setCurrentScreen(Screens.ABOUT);
+          }}
+        />
+      )}
 
-      {!isMainInteractionFlow() && (
+      {shouldShowBackButton() && (
         <Button
           onClick={() => {
-            setCurrentScreen(previousScreen);
+            setCurrentScreen(Screens.LANDING_SCREEN);
           }}
         >
           Back to artwork

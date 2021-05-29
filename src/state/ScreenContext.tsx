@@ -8,6 +8,7 @@ import React, {
 enum Screens {
   LANDING_SCREEN = "landing screen",
   WISH_INPUT = "wish input",
+  STARS = "stars",
   VIEW_WISHES = "view wishes",
   ABOUT = "about",
 }
