@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
+import { BabylonScene } from "../babylon/BabylonScene";
 import { Button } from "../components/Button";
 import { ScreenLayout } from "../components/ScreenLayout";
 import { device, Glow } from "../globalStyles";
@@ -48,6 +49,7 @@ const Stars: FunctionComponent = () => {
 
   return (
     <ScreenLayout isActive={currentScreen === THIS_SCREEN}>
+      <BabylonScene />
       <StyledButton
         onClick={() => {
           setCurrentScreen(Screens.VIEW_WISHES);

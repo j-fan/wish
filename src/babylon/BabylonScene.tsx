@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { Engine, Scene } from "react-babylonjs";
-import { Vector3 } from "@babylonjs/core/Maths/math";
+import { Color4, Vector3 } from "@babylonjs/core/Maths/math";
 import styled from "styled-components";
 import useMeasure from "react-use-measure";
 import { ResizeObserver } from "@juggle/resize-observer";
@@ -8,6 +8,7 @@ import { ResizeObserver } from "@juggle/resize-observer";
 const SceneContainer = styled.div`
   width: 100%;
   height: 100%;
+  position: fixed;
 `;
 
 const BabylonScene: FunctionComponent = () => {
@@ -18,7 +19,7 @@ const BabylonScene: FunctionComponent = () => {
   return (
     <SceneContainer ref={ref}>
       <Engine antialias canvasId="babylonJS" height={height} width={width}>
-        <Scene>
+        <Scene clearColor={new Color4(0, 0, 0, 0)}>
           <freeCamera
             name="camera1"
             position={new Vector3(0, 5, -10)}

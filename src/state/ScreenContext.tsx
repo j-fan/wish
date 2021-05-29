@@ -42,7 +42,9 @@ const ScreenContextProvider: FunctionComponent = ({ children }) => {
     defaultScreenContext.currentScreen
   );
   const [isLoading, setIsLoading] = useState(defaultScreenContext.isLoading);
-  const [screenContent, setScreenContent] = useState({});
+  const [screenContent, setScreenContent] = useState(
+    defaultScreenContext.screenContent
+  );
 
   return (
     <ScreenContext.Provider
