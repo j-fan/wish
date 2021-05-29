@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { Glow, ThemeColours } from "../globalStyles";
 
 const StyledButton = styled.div<{ $hasGlow?: boolean }>`
+  font-size: 20px;
   color: ${ThemeColours.white};
   display: flex;
   user-select: none;

@@ -24,7 +24,7 @@ const IconStyle = styled.div<{ src: string; size: string }>`
 const IconSize = {
   small: "30px",
   medium: "40px",
-  large: "50px",
+  large: "48px",
   extraLarge: "80px",
 };
 

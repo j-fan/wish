@@ -35,7 +35,7 @@ const OverlayControls: FunctionComponent = () => {
       {cookies.hasMadeWish && shouldShowButtons() && (
         <Icon
           src="img/icons_tree.png"
-          size="medium"
+          size="large"
           onClick={() => {
             setCurrentScreen(Screens.VIEW_WISHES);
           }}
@@ -45,7 +45,7 @@ const OverlayControls: FunctionComponent = () => {
       {shouldShowButtons() && (
         <Icon
           src="img/icons_about.png"
-          size="medium"
+          size="large"
           onClick={() => {
             setCurrentScreen(Screens.ABOUT);
           }}

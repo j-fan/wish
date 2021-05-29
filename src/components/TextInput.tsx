@@ -24,10 +24,12 @@ const InputContainer = styled.div`
 `;
 
 const StyledButton = styled(Button)`
+  font-size: 20px;
   margin: 4px;
 `;
 
 const StyledInput = styled.input`
+  font-size: 20px;
   ${fontFamily}
   color: ${ThemeColours.black75};
   text-align: right;
@@ -35,7 +37,6 @@ const StyledInput = styled.input`
   background: transparent;
   border: none;
   outline: none;
-  font-size: 16px;
   width: 100%;
 
   ::placeholder {
