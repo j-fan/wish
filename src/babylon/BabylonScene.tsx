@@ -4,7 +4,7 @@ import { Color4, Vector3 } from "@babylonjs/core/Maths/math";
 import styled from "styled-components";
 import useMeasure from "react-use-measure";
 import { ResizeObserver } from "@juggle/resize-observer";
-import { StarModel } from "./StarModel";
+import { StarModels } from "./StarModels";
 
 const SceneContainer = styled.div`
   width: 100%;
@@ -33,10 +33,7 @@ const BabylonScene: FunctionComponent = () => {
             direction={Vector3.Up()}
           />
 
-          <StarModel position={new Vector3(0, 1, 0)} colour="teal" />
-          <StarModel position={new Vector3(1, 0, 0)} colour="purple" />
-          <StarModel position={new Vector3(0, -1, 0)} colour="yellow" />
-          <StarModel position={new Vector3(-1, 0, 0)} colour="purple" />
+          {StarModels({ numStars: 6 })}
 
           <defaultRenderingPipeline
             hdr
