@@ -37,6 +37,15 @@ const BabylonScene: FunctionComponent = () => {
           <StarModel position={new Vector3(1, 0, 0)} colour="purple" />
           <StarModel position={new Vector3(0, -1, 0)} colour="yellow" />
           <StarModel position={new Vector3(-1, 0, 0)} colour="purple" />
+
+          <defaultRenderingPipeline
+            hdr
+            bloomEnabled
+            bloomKernel={32}
+            bloomScale={1}
+            bloomWeight={1}
+            bloomThreshold={0.7}
+          />
         </Scene>
       </Engine>
     </SceneContainer>
