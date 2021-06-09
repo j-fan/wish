@@ -12,13 +12,13 @@ const WishesContainer = styled.div`
   ${Glow};
   width: 100%;
   height: 100%;
-  padding: 80px 0px 30px 0px;
+  padding: 100px 0px 20px 0px;
   box-sizing: border-box;
 
   @media ${device.tablet} {
     display: grid;
     grid-template-columns: 500px auto;
-    padding: 70px 0px 70px 30px;
+    padding: 100px 0px 60px 20px;
   }
 `;
 
@@ -123,8 +123,8 @@ const ViewWishes: FunctionComponent = () => {
             .sort((lhs, rhs) => (lhs.timestamp < rhs.timestamp ? -1 : 1))
             .reverse()
             .map((wish: Wish) => (
-            <WishTag key={wish.id}>{wish.value}</WishTag>
-          ))}
+              <WishTag key={wish.id}>{wish.value}</WishTag>
+            ))}
         </WishesColumn>
       </WishesContainer>
     </ScreenLayout>
