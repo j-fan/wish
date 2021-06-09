@@ -16,6 +16,10 @@ const ScreenLayoutStyle = styled.div<{ $isActive: boolean }>`
   top: 0;
   left: 0;
 
+  a {
+    color: ${ThemeColours.white};
+  }
+
   ${({ $isActive }) =>
     $isActive
       ? css`

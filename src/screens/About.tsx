@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
+import { Link } from "../components/Link";
 import { ScreenLayout } from "../components/ScreenLayout";
 import { device, Glow } from "../globalStyles";
 import { Screens, useScreen } from "../state/ScreenContext";
@@ -10,16 +11,17 @@ const ColumnLayout = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 36px;
-  max-width: 800px;
+  max-width: 1000px;
   max-height: 100%;
   overflow-y: scroll;
 
-  @media ${device.mobileL} {
+  @media ${device.tablet} {
     grid-template-columns: 1fr 1fr;
   }
 
   p {
     line-height: 1.5;
+    font-size: 18px;
   }
 
   h1 {
@@ -74,21 +76,27 @@ const About: FunctionComponent = () => {
           <div>
             <h1>About the artist</h1>
             <p>
-              Alvin Ruiyuan Zhong is a Chinese-Australian multidisciplinary
-              artist working across illustration, projection art and CGI. His
-              work often invokes feelings of nostalgia, wonder and child-like
-              joy or innocence. He brings aboard a sense of schoolyard antics
-              into his art-making, often blending the aesthetics of
-              hyper-masculine rave culture and the saccharine cuteness in kawaii
-              culture to investigate his surroundings.
+              <Link href="https://www.alvinruiyuanzhong.com/">
+                Alvin Ruiyuan Zhong
+              </Link>{" "}
+              is a Chinese-Australian multidisciplinary artist working across
+              illustration, projection art and CGI. His work often invokes
+              feelings of nostalgia, wonder and child-like joy or innocence. He
+              brings aboard a sense of schoolyard antics into his art-making,
+              often blending the aesthetics of hyper-masculine rave culture and
+              the saccharine cuteness in kawaii culture to investigate his
+              surroundings.
             </p>
             <h1>Acknowledgements</h1>
             <p>
               Concept & Storyboarding: Alvin Zhong
               <br />
-              Modelling & Animation: Alvin Zhong & Jane Fan
+              Modelling & Animation: Alvin Zhong &{" "}
+              <Link href="https://www.janefan.xyz/">Jane Fan</Link>
               <br />
-              Programming: Callum Howard & Jane Fan
+              Programming:{" "}
+              <Link href="https://www.callumhoward.com/">Callum Howard</Link> &
+              Jane Fan
               <br />
               Sound: Alvin Zhong & Callum Howard
               <br />
