@@ -11,7 +11,6 @@ const THIS_SCREEN = Screens.VIEW_WISHES;
 const WishesContainer = styled.div`
   ${Glow};
   width: 100%;
-  height: 100%;
   padding: 100px 0px 20px 0px;
   box-sizing: border-box;
 
@@ -26,13 +25,14 @@ const TreeImage = styled.img`
   object-fit: contain;
   max-height: 100%;
   max-width: 100%;
+  margin-bottom: 40px;
 `;
 
 const TreeColumn = styled.div`
   display: none;
 
   h1 {
-    margin: 60px 0px;
+    margin: 0px 0px 40px;
     font-size: 42px;
   }
 
@@ -44,7 +44,8 @@ const TreeColumn = styled.div`
 `;
 
 const WishesColumn = styled.div`
-  overflow-y: scroll;
+  overflow-y: hidden;
+  overflow-x: scroll;
   height: 100%;
   display: flex;
 

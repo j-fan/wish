@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 
 const fontFamily = "font-family: 'Cormorant', serif;";
 
@@ -13,6 +13,15 @@ const ThemeColours = {
   black75: "rgba(0, 0, 0, 0.75)",
 };
 
+const HideScrollBar = css`
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+`;
+
 const GlobalStyle = createGlobalStyle`
   html, body, #app {
     margin: 0;
@@ -22,13 +31,7 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
     ${fontFamily}
     background: ${ThemeColours.black};
-
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    ::-webkit-scrollbar {
-      display: none;
-    }
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    ${HideScrollBar}
   }
 
   button {
@@ -59,4 +62,4 @@ const device = {
 const Glow =
   "filter: drop-shadow(0px 0px 1px #FFF) drop-shadow(0px 0px 5px #FFF)";
 
-export { GlobalStyle, ThemeColours, fontFamily, device, Glow };
+export { GlobalStyle, ThemeColours, fontFamily, device, Glow, HideScrollBar };

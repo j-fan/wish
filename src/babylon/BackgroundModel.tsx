@@ -2,7 +2,7 @@ import { Vector3 } from "@babylonjs/core";
 import React, { FunctionComponent } from "react";
 
 const IMAGE_URL = "img/wish_background.jpg";
-const SCALE_FACTOR = 1.67;
+const SCALE_FACTOR = 2.2;
 
 const BackgroundModel: FunctionComponent = () => {
   return (

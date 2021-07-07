@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import { ThemeColours } from "../globalStyles";
+import { HideScrollBar, ThemeColours } from "../globalStyles";
 import { Icon } from "./Icon";
 
 const WishContainer = styled.div`
@@ -25,6 +25,7 @@ const TextContainer = styled.div`
   word-break: break-word;
   overflow-x: hidden;
   overflow-y: scroll;
+  ${HideScrollBar}
 `;
 
 const WishTag: FunctionComponent = ({ children }) => {
