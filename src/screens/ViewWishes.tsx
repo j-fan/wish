@@ -11,10 +11,12 @@ const THIS_SCREEN = Screens.VIEW_WISHES;
 const WishesContainer = styled.div`
   ${Glow};
   width: 100%;
+  height: 100%;
   padding: 100px 0px 20px 0px;
   box-sizing: border-box;
 
   @media ${device.tablet} {
+    height: auto;
     display: grid;
     grid-template-columns: 500px auto;
     padding: 100px 0px 60px 20px;
