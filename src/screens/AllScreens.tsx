@@ -7,12 +7,16 @@ import { Stars } from "./Stars";
 import { ViewWishes } from "./ViewWishes";
 import { WishInput } from "./WishInput";
 
-const AllScreens: FunctionComponent = () => {
+interface AllScreensProps {
+  onEnterArtwork?: () => void;
+}
+
+const AllScreens: FunctionComponent<AllScreensProps> = ({ onEnterArtwork }) => {
   const { currentScreen } = useScreen();
   return (
     <>
       <BabylonScene showStars={currentScreen === Screens.STARS} />
-      <LandingScreen />
+      <LandingScreen onEnterArtwork={onEnterArtwork} />
       <WishInput />
       <Stars />
       <ViewWishes />

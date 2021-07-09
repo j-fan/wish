@@ -31,7 +31,13 @@ const LogoImg = styled.img`
   margin-left: -12%;
 `;
 
-const LandingScreen: FunctionComponent = () => {
+interface LandingScreenProps {
+  onEnterArtwork?: () => void;
+}
+
+const LandingScreen: FunctionComponent<LandingScreenProps> = ({
+  onEnterArtwork,
+}) => {
   const { currentScreen, setCurrentScreen } = useScreen();
 
   return (
@@ -44,6 +50,7 @@ const LandingScreen: FunctionComponent = () => {
         hasGlow
         onClick={() => {
           setCurrentScreen(Screens.WISH_INPUT);
+          onEnterArtwork?.();
         }}
       >
         Enter artwork

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useRef } from "react";
 import { GlobalStyle } from "./globalStyles";
 import styled from "styled-components";
 import { ScreenContextProvider } from "./state/ScreenContext";
@@ -12,12 +12,23 @@ const AppContainer = styled.div`
 `;
 
 export const App: FunctionComponent = () => {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const playMusic = () => {
+    if (audioRef && audioRef.current) {
+      audioRef.current.play();
+    }
+  };
+
   return (
     <CookiesProvider>
       <ScreenContextProvider>
         <AppContainer>
           <GlobalStyle />
-          <AllScreens />
+          <audio ref={audioRef} loop>
+            <source src="sound/crowander_let_is_last.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+          <AllScreens onEnterArtwork={playMusic} />
           <OverlayControls />
         </AppContainer>
       </ScreenContextProvider>
