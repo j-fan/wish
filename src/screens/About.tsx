@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import { Link } from "../components/Link";
 import { ScreenLayout } from "../components/ScreenLayout";
-import { device, Glow } from "../globalStyles";
+import { device, Glow, HideScrollBar } from "../globalStyles";
 import { Screens, useScreen } from "../state/ScreenContext";
 
 const THIS_SCREEN = Screens.ABOUT;
@@ -14,6 +14,7 @@ const ColumnLayout = styled.div`
   max-width: 1000px;
   max-height: 100%;
   overflow-y: scroll;
+  ${HideScrollBar};
 
   @media ${device.tablet} {
     grid-template-columns: 1fr 1fr;
@@ -98,7 +99,7 @@ const About: FunctionComponent = () => {
               <Link href="https://www.callumhoward.com/">Callum Howard</Link> &
               Jane Fan
               <br />
-              Sound: Alvin Zhong & Callum Howard
+              Sound: Let is Last by Crowander
               <br />
             </p>
           </div>
