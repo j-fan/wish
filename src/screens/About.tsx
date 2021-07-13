@@ -57,21 +57,23 @@ const About: FunctionComponent = () => {
               sensual experience, Wish is a hopeful dissection of the internet
               as a tool for expressing one’s self through vulnerability and
               tenderness. Drawing influences from early 2000’s tech aesthetics,
-              Asian UI design, DDR, Virtual Self, and the work of Mai Yamashita
-              and Naoto Kobayashi, this work is an attempt to reframe the
-              internet as a method of tracking human desires and hopes.
+              Asian UI design, Super Mario Galaxy, Animal Crossing, Virtual
+              Self, and the work of Mai Yamashita and Naoto Kobayashi, this work
+              is an attempt to reframe the internet as a method of tracking
+              human desires and hopes.
             </p>
             <p>
               When users land on the website, they will be introduced to a
               starry night sky. Occasionally, glowing neon stars will tumble
               through the screen. Users will be prompted by a text box to enter
-              their wish. Each letter typed will trigger hushed keys and tones,
-              echoing the intimate nature of their wish. When the wish has been
-              submitted, a special star will fall from the sky, just for them,
-              leaving just as quickly as it came. In a section called the
-              Wishing Tree, users can see wishes of others, displayed
-              anonymously on rectangular tags, drawing reference to the custom
-              of tying wishes to trees during the Tanabata festival.
+              their wish. As users type in their wish, sparse and cascading
+              piano plays in the background, grounding them in the contemplative
+              nature of the experience. When the wish has been submitted, stars
+              will begin shooting through the sky, signalling their wish has
+              been sent into the aether. In a section called the Wishing Tree,
+              users can see wishes of others, displayed anonymously on
+              rectangular tags, drawing reference to the custom of tying wishes
+              to trees during the Tanabata festival.
             </p>
           </div>
           <div>
@@ -89,6 +91,10 @@ const About: FunctionComponent = () => {
               surroundings.
             </p>
             <h1>Acknowledgements</h1>
+            <p>
+              This work has been commissioned by 4A Centre for Contemporary
+              Asian Art, 2021.
+            </p>
             <p>
               Concept & Storyboarding: Alvin Zhong
               <br />
